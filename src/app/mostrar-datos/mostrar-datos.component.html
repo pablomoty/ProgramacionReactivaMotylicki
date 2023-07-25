@@ -1,0 +1,32 @@
+<h2> Desafio Programacion Reactiva</h2>
+
+<table mat-table *ngIf="(datos$ | async) as datos" mat-table [dataSource]="datos" class="mat-elevation-z8">
+
+ 
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef>Nombre</th>
+    <td mat-cell *matCellDef="let pais">{{ pais.nombre }}</td>
+  </ng-container>
+
+  
+  <ng-container matColumnDef="capital">
+    <th mat-header-cell *matHeaderCellDef>Capital</th>
+    <td mat-cell *matCellDef="let pais">{{ pais.capital }}</td>
+  </ng-container>
+
+  
+  <ng-container matColumnDef="idiomas">
+    <th mat-header-cell *matHeaderCellDef>Idiomas</th>
+    <td mat-cell *matCellDef="let pais">{{ pais.idiomas}}</td>
+  </ng-container>
+
+  
+  <ng-container matColumnDef="continente">
+    <th mat-header-cell *matHeaderCellDef>Continente</th>
+    <td mat-cell *matCellDef="let pais">{{ pais.continente }}</td>
+  </ng-container>
+
+  
+  <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+</table>
